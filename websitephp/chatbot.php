@@ -73,10 +73,9 @@
 
 <script>
 // Groq API Configuration
-const GROQ_API_KEY = "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";
+// NOTE: Replace with your own Groq API key from https://console.groq.com/keys
+const GROQ_API_KEY = "YOUR_GROQ_API_KEY_HERE";
 const GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions";
-
-// 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 = Groq ChatBot API Key For Jay Parmar
 
 let chatHistory = [];
 let isChatActive = false;
