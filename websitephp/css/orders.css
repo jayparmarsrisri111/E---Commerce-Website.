@@ -1,0 +1,248 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  color: #fff;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+  z-index: -1;
+}
+
+/* Navbar Styles consistent with other pages */
+.navbar {
+  background: rgba(15, 23, 42, 0.95) !important;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  padding: 1rem 0;
+  position: relative;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+  color: #fff !important;
+}
+
+.navbar-brand:hover {
+  transform: translateY(-2px);
+}
+
+.navbar-brand img {
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover img {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.8);
+}
+
+.nav-link {
+  margin: 0 8px;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #fff !important;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-link.active {
+  color: #60a5fa !important;
+}
+
+.nav-link i {
+  margin-right: 5px;
+}
+
+/* Main Content */
+.main-content {
+  padding: 100px 0;
+}
+
+.orders-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px;
+  margin: -10px; /* Offset padding to prevent shadow clipping */
+}
+
+.orders-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 30px;
+  padding: 3rem;
+  color: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.page-title {
+  font-weight: 800;
+  color: #1e3c72;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.info-box {
+  background: #f0f9ff;
+  border-left: 4px solid #3b82f6;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  color: #1e40af;
+}
+
+/* Table Styling */
+.table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+.table thead th {
+  border-bottom: none;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  padding: 1rem;
+  white-space: nowrap;
+}
+
+.table tbody tr {
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border-radius: 12px;
+}
+
+.table tbody tr:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.table td {
+  border-top: none;
+  padding: 1.25rem 1rem;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.table td:first-child {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.table td:last-child {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.price-text {
+  font-weight: 700;
+  color: #10b981;
+}
+
+/* Status Badges */
+.status-badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status-pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-success {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-danger {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Footer */
+footer {
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(15px);
+  color: #e2e8f0;
+  padding: 30px 0;
+  margin-top: 60px;
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+footer p {
+  margin-bottom: 8px; 
+}
+
+footer small {
+  color: #94a3b8;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 10px;
+  border-top: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 60px 15px;
+  }
+  .orders-card {
+    padding: 2rem 1.5rem;
+  }
+}

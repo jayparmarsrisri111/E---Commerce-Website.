@@ -1,0 +1,33 @@
+<?php
+session_start();
+include("configpage.php");
+if(isset($_POST['submit'])){
+    
+    $firstname = mysqli_real_escape_string($mysqli, trim($_POST['firstname']));
+    $lastname = mysqli_real_escape_string($mysqli, trim($_POST['lastname']));
+    $email = mysqli_real_escape_string($mysqli, trim($_POST['email']));
+    $phone = mysqli_real_escape_string($mysqli, trim($_POST['phone']));
+    $confirmpassword = mysqli_real_escape_string($mysqli, $_POST['confirmpassword']);
+    $password = mysqli_real_escape_string($mysqli, $_POST['password']);
+
+    // Check if user already exists to prevent duplicate emails and failure in login
+    $check_query = "SELECT * FROM login WHERE email='$email'";
+    $check_result = mysqli_query($mysqli, $check_query);
+
+    if(mysqli_num_rows($check_result) > 0) {
+        echo "<script>alert('Email already exists! Please just login.'); window.location.href='login.php';</script>";
+        exit();
+    }
+
+    $result = mysqli_query($mysqli, "INSERT INTO login(firstname, lastname, email, phone, confirmpassword, password) VALUES('$firstname', '$lastname', '$email', '$phone', '$confirmpassword', '$password')");
+    
+    if($result) {
+        $_SESSION['email'] = $email;
+        header("Location: HOME PAGE WEBSITE.php");
+        exit();
+    } else {
+        echo "<script>alert('Error registering account. Please try again.'); window.location.href='signup.php';</script>";
+        exit();
+    }
+}
+?>

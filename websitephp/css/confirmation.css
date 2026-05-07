@@ -1,0 +1,203 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    footer {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(15px);
+      color: #e2e8f0;
+      padding: 30px 0;
+      width: 100%;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+    }
+
+    footer p {
+      margin-bottom: 8px; 
+    }
+
+    footer small {
+      color: #94a3b8;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 10px;
+      border-top: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .confirmation-container {
+      background: white;
+      border-radius: 20px;
+      padding: 50px 40px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .success-icon {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, #10b981, #059669);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 30px;
+      animation: scaleIn 0.5s ease-out 0.3s both;
+    }
+
+    @keyframes scaleIn {
+      from {
+        transform: scale(0);
+      }
+      to {
+        transform: scale(1);
+      }
+    }
+
+    .success-icon i {
+      color: white;
+      font-size: 50px;
+    }
+
+    h1 {
+      color: #1e293b;
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .order-number {
+      color: #3b82f6;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+
+    .message {
+      color: #64748b;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .info-box {
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .info-row:last-child {
+      border-bottom: none;
+    }
+
+    .info-label {
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    .info-value {
+      color: #1e293b;
+      font-weight: 500;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 30px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: white;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #3b82f6;
+      border: 2px solid #3b82f6;
+    }
+
+    .btn-secondary:hover {
+      background: #3b82f6;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .confirmation-container {
+        padding: 40px 25px;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      .btn-group {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+@media (max-width: 576px) { .confirmation-container { padding: 30px 15px; border-radius: 12px; } h1 { font-size: 1.4rem; } .success-icon { width: 80px; height: 80px; } .success-icon i { font-size: 40px; } .info-box { padding: 15px; } .info-row { font-size: 0.9rem; } }
