@@ -6,7 +6,7 @@ if(isset($_POST['submit'])){
     $password = $_POST['password'];
 
     $result = mysqli_query($mysqli, "INSERT INTO login(email, password) VALUES('$email', '$password')");
-   header("Location: HOME PAGE WEBSITE.php");
+   header("Location: index.php");
    
     }
     ?>

@@ -73,6 +73,7 @@
       position: relative;
       transition: all 0.3s ease;
       color: rgba(255, 255, 255, 0.8) !important;
+      white-space: nowrap;
     }
 
     .nav-link::after {
@@ -262,7 +263,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 50px 15px;
+      padding: 12px 15px;
       width: 100%;
       color: #475569;
       font-size: 1rem;
@@ -434,3 +435,12 @@
       animation: spin 0.8s linear infinite;
       margin-left: 10px;
     }
+
+@media (max-width: 576px) {
+  .order-form { padding: 20px 15px; margin: 0 10px; border-radius: 16px; }
+  .form-title { font-size: 1.4rem; }
+  .order-container { padding: 0 5px; }
+  .main-content { padding: 30px 0; }
+  .summary-row span { min-width: 100px; font-size: 0.9rem; }
+  .btn-submit { font-size: 1rem; padding: 12px; }
+}

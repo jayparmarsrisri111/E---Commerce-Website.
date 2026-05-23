@@ -73,6 +73,7 @@
       position: relative;
       transition: all 0.3s ease;
       color: rgba(255, 255, 255, 0.8) !important;
+      white-space: nowrap;
     }
 
     .nav-link::after {
@@ -379,3 +380,9 @@
       }
     }
 @media (max-width: 576px) { .contact-info-card, .contact-form-card { padding: 20px 15px; margin: 0 10px; border-radius: 16px; } .contact-item { padding: 15px; margin-bottom: 15px; } .contact-icon { width: 40px; height: 40px; } .contact-icon i { font-size: 1.1rem; } .main-content { padding: 30px 0; } }
+
+@media (max-width: 768px) {
+  .main-content { padding: 30px 0; }
+  .contact-info-card h2 { font-size: 1.6rem; }
+  .contact-form-card { padding: 30px 20px; }
+}

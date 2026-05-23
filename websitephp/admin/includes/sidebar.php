@@ -15,7 +15,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
     </div>
     
     <div class="sidebar-menu">
-        <a href="dashboard.php" class="menu-item <?php echo $current_page == 'dashboard.php' ? 'active' : ''; ?>">
+        <a href="index.php" class="menu-item <?php echo $current_page == 'index.php' ? 'active' : ''; ?>">
             <i class="fas fa-tachometer-alt"></i>
             <span>Dashboard</span>
         </a>

@@ -107,40 +107,6 @@
     }
 
     .message {
-      color: #64748b;
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 30px;
-    }
-
-    .info-box {
-      background: #f8fafc;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 30px;
-      text-align: left;
-    }
-
-    .info-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px solid #e2e8f0;
-    }
-
-    .info-row:last-child {
-      border-bottom: none;
-    }
-
-    .info-label {
-      color: #64748b;
-      font-weight: 600;
-    }
-
-    .info-value {
-      color: #1e293b;
-      font-weight: 500;
-    }
 
     .btn-group {
       display: flex;

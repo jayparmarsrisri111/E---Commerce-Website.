@@ -1,0 +1,108 @@
+#mainNav {
+  background: rgba(15, 23, 42, 0.95) !important;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  padding: 1rem 0;
+  position: relative;
+  width: 100%;
+  z-index: 110;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#mainNav .navbar-brand {
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+  color: #fff !important;
+}
+
+#mainNav .navbar-brand:hover {
+  transform: translateY(-2px);
+}
+
+#mainNav .navbar-brand img {
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+}
+
+#mainNav .navbar-brand:hover img {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.8);
+}
+
+#mainNav .nav-link {
+  margin: 0 2px;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.8) !important;
+  padding: 0.5rem 0.6rem !important;
+  white-space: nowrap;
+}
+
+#mainNav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+#mainNav .nav-link:hover {
+  color: #fff !important;
+}
+
+#mainNav .nav-link:hover::after,
+#mainNav .nav-link.active::after {
+  width: 100%;
+  left: 0;
+}
+
+#mainNav .nav-link.active {
+  color: #60a5fa !important;
+}
+
+#mainNav .nav-link i {
+  margin-right: 4px;
+}
+
+#mainNav .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+#mainNav .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* Mobile Responsive Navbar */
+@media (max-width: 991px) {
+  #mainNav .nav-link {
+    padding: 0.6rem 1rem !important;
+    margin: 0 !important;
+    white-space: nowrap;
+    font-size: 0.95rem;
+  }
+  #mainNav .nav-link::after {
+    display: none;
+  }
+  #mainNav {
+    padding: 0.6rem 0;
+  }
+}
+
+@media (max-width: 576px) {
+  #mainNav .navbar-brand {
+    font-size: 1.1rem;
+  }
+  #mainNav .navbar-brand img {
+    width: 28px !important;
+    height: 28px !important;
+  }
+}

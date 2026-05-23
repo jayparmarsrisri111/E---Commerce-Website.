@@ -183,6 +183,46 @@ $orderResult = mysqli_query($mysqli, $orderQuery);
             </div>
         </div>
 
+        <!-- User's Active Cart Section -->
+        <div class="details-container" style="padding: 20px; overflow-x: auto; text-align: center; margin-bottom: 30px;">
+            <h3 style="margin-bottom: 20px; color: #333; text-align: center;"><i class="fas fa-shopping-basket"></i> Current Items in Shopping Cart</h3>
+            <?php
+            $cartQuery = "SELECT c.*, p.title as product_title, p.img as product_img, p.saleprice as product_price, p.mrp as product_mrp FROM cart c JOIN product p ON c.product_id = p.id WHERE c.email = '$email' ORDER BY c.id DESC";
+            $cartResult = mysqli_query($mysqli, $cartQuery);
+            ?>
+            <table style="width: 100%; text-align: center; margin: 0 auto;">
+                <thead>
+                    <tr>
+                        <th style="text-align: center !important; vertical-align: middle;">Product Image</th>
+                        <th style="text-align: center !important; vertical-align: middle;">Product Name</th>
+                        <th style="text-align: center !important; vertical-align: middle;">Unit Price</th>
+                        <th style="text-align: center !important; vertical-align: middle;">Quantity</th>
+                        <th style="text-align: center !important; vertical-align: middle;">Subtotal</th>
+                        <th style="text-align: center !important; vertical-align: middle;">Added Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if (mysqli_num_rows($cartResult) > 0) {
+                        while ($cart_item = mysqli_fetch_assoc($cartResult)) {
+                            $subtotal = $cart_item['product_price'] * $cart_item['quantity'];
+                            echo "<tr>";
+                            echo "<td style='text-align: center !important; vertical-align: middle;'><img src='../admin/".htmlspecialchars($cart_item['product_img'])."' style='width:50px; height:50px; object-fit:cover; border-radius:8px; border:1px solid #eef2f5;'></td>";
+                            echo "<td style='text-align: center !important; vertical-align: middle;'>".htmlspecialchars($cart_item['product_title'])."</td>";
+                            echo "<td style='text-align: center !important; vertical-align: middle; font-weight:600;'>₹".htmlspecialchars($cart_item['product_price'])."</td>";
+                            echo "<td style='text-align: center !important; vertical-align: middle; font-weight:bold;'><span style='background:rgba(59,130,246,0.1); color:#3b82f6; padding:4px 10px; border-radius:15px;'>".htmlspecialchars($cart_item['quantity'])."</span></td>";
+                            echo "<td style='text-align: center !important; vertical-align: middle;'><strong style='color:#10b981;'>₹".$subtotal."</strong></td>";
+                            echo "<td style='text-align: center !important; vertical-align: middle; color:#7f8c8d; font-size:14px;'>".date('d M Y, h:i A', strtotime($cart_item['added_at']))."</td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='6' style='text-align:center !important; padding: 30px; color: #888;'><em>No active items in cart for this user.</em></td></tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+
         <div class="details-container" style="padding: 20px; overflow-x: auto; text-align: center;">
             <h3 style="margin-bottom: 20px; color: #333; text-align: center;"><i class="fas fa-shopping-cart"></i> Associated Order History</h3>
             <table style="width: 100%; text-align: center; margin: 0 auto;">

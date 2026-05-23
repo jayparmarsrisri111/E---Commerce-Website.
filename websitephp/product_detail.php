@@ -38,6 +38,7 @@ $orderstock = $orderstock_result['total'] ?? 0;
   <!-- Use standard pr.css for navbar/footer styles and custom for details -->
   <link rel="stylesheet" href="css/pr.css">
   <link rel="stylesheet" href="css/product_detail.css">
+  <link rel="stylesheet" href="css/navbar-common.css?v=<?php echo time(); ?>">
 </head>
 <body>
   <!-- Navigation (Same as pr.php) -->
@@ -99,9 +100,18 @@ $orderstock = $orderstock_result['total'] ?? 0;
                           $orderLink = 'login.php?redirect=' . urlencode($orderUrl);
                       }
                   ?>
-                      <a href="<?php echo $orderLink; ?>" class="btn d-btn-order btn-lg w-100 shadow-lg mb-4">
-                          <i class="fas fa-shopping-cart fa-lg ms-2 me-2"></i> Proceed to Order Now
-                      </a>
+                      <div class="row g-3 mb-4">
+                          <div class="col-md-6">
+                              <a href="cart_handler.php?action=add&product_id=<?php echo $product['id']; ?>" class="btn btn-warning btn-lg w-100 shadow-lg text-white" style="background: linear-gradient(135deg, #f59e0b, #d97706); border: none; padding: 12px; border-radius: 12px; font-weight: 700;">
+                                  <i class="fas fa-cart-plus fa-lg me-2"></i> Add to Cart
+                              </a>
+                          </div>
+                          <div class="col-md-6">
+                              <a href="<?php echo $orderLink; ?>" class="btn d-btn-order btn-lg w-100 shadow-lg" style="padding: 12px; border-radius: 12px;">
+                                  <i class="fas fa-shopping-bag fa-lg me-2"></i> Buy Now
+                              </a>
+                          </div>
+                      </div>
                   <?php } ?>
               </div>
 

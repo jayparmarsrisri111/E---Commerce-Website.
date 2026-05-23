@@ -247,3 +247,44 @@
         font-size: 1rem;
       }
     }
+
+/* ===== RESPONSIVE 576px ===== */
+@media (max-width: 576px) {
+  .logout-card {
+    padding: 35px 20px;
+  }
+  .logout-title {
+    font-size: 1.4rem;
+  }
+  .logout-message {
+    font-size: 0.95rem;
+  }
+  .logout-icon {
+    width: 65px;
+    height: 65px;
+  }
+  .logout-icon i {
+    font-size: 2rem;
+  }
+  .btn-primary-logout,
+  .btn-secondary-logout {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .logout-card {
+    padding: 25px 15px;
+  }
+  .logout-title {
+    font-size: 1.2rem;
+  }
+  .brand-link {
+    font-size: 1rem;
+  }
+  .brand-link img {
+    width: 28px;
+    height: 28px;
+  }
+}

@@ -47,7 +47,7 @@
       </div>
 
       <div class="btn-group">
-        <a href="HOME PAGE WEBSITE.php" class="btn btn-primary">
+        <a href="index.php" class="btn btn-primary">
           <i class="fas fa-home"></i>
           Back to Home
         </a>

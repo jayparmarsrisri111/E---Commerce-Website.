@@ -20,10 +20,12 @@ if(isset($_POST['submit'])){
     }
 
     $result = mysqli_query($mysqli, "INSERT INTO login(firstname, lastname, email, phone, confirmpassword, password) VALUES('$firstname', '$lastname', '$email', '$phone', '$confirmpassword', '$password')");
-    
     if($result) {
         $_SESSION['email'] = $email;
-        header("Location: HOME PAGE WEBSITE.php");
+        if(!isset($mysqli)) { include_once("configpage.php"); }
+        include_once("cart_functions.php");
+        syncCartAfterLogin($email, $mysqli);
+        header("Location: index.php");
         exit();
     } else {
         echo "<script>alert('Error registering account. Please try again.'); window.location.href='signup.php';</script>";

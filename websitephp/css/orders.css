@@ -67,6 +67,7 @@ body::before {
   position: relative;
   transition: all 0.3s ease;
   color: rgba(255, 255, 255, 0.8) !important;
+  white-space: nowrap;
 }
 
 .nav-link::after {
@@ -245,4 +246,13 @@ footer small {
   .orders-card {
     padding: 2rem 1.5rem;
   }
+}
+
+@media (max-width: 576px) {
+  .orders-card { padding: 1.5rem 1rem; border-radius: 16px; }
+  .main-content { padding: 30px 0; }
+  .page-title { font-size: 1.4rem; }
+  .table thead th { font-size: 0.75rem; padding: 0.75rem 0.5rem; }
+  .table td { font-size: 0.85rem; padding: 1rem 0.5rem; }
+  .status-badge { font-size: 0.7rem; padding: 4px 10px; }
 }

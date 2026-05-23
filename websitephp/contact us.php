@@ -9,9 +9,18 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="css/contact-us.css">
+  <link rel="stylesheet" href="css/navbar-common.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="css/page-header.css?v=<?php echo time(); ?>">
 </head>
 <body>
 <?php include_once('includes/navbar.php'); ?>
+
+<div class="page-header">
+  <div class="container text-center">
+    <h1><i class="fas fa-envelope me-3"></i>Contact Us</h1>
+    <p>Have a question? Reach out to Marine Traders for support and product assistance.</p>
+  </div>
+</div>
 
 <!-- Main Content -->
 <div class="main-content">

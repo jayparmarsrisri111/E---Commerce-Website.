@@ -1,6 +1,6 @@
 <?php
 $files = [
-    'HOME PAGE WEBSITE.php',
+    'index.php',
     'About.php',
     'pr.php',
     'orderpage.php',

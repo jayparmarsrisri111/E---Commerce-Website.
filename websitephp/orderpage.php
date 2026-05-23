@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 session_start();
 
 // â”€â”€ Login check: agar user logged in nahi hai toh login page pe bhejo â”€â”€
@@ -21,9 +21,18 @@ $accno = $_GET['accno'] ?? '';
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="css/orderpage.css">
+  <link rel="stylesheet" href="css/navbar-common.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="css/page-header.css?v=<?php echo time(); ?>">
 </head>
 <body>
 <?php include_once('includes/navbar.php'); ?>
+
+<div class="page-header">
+  <div class="container text-center">
+    <h1>Place Order</h1>
+    <p>Complete your purchase with secure checkout and fast delivery.</p>
+  </div>
+</div>
 
 <?php
 $title = $_GET['title'] ?? '';
@@ -57,6 +66,9 @@ $u_lastname  = htmlspecialchars($user_data['lastname']  ?? '');
 $u_email     = htmlspecialchars($user_data['email']     ?? $user_email);
 $u_phone     = htmlspecialchars($user_data['phone']     ?? '');
 ?>
+<div class="page-header">
+  <h1>Order</h1>
+</div>
 <!-- Main Content -->
 <div class="main-content">
   <div class="container">

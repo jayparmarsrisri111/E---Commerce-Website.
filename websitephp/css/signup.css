@@ -135,7 +135,7 @@
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 250px;
+      width: 60%;
       height: 4px;
       background: linear-gradient(90deg, #3b82f6, #8b5cf6);
       border-radius: 2px;

@@ -47,3 +47,37 @@ body{
   font-size:1.2rem;
   color:#2563eb;
 }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 576px) {
+  .payment-box {
+    padding: 20px 15px;
+    border-radius: 14px;
+  }
+  .payment-box h2 {
+    font-size: 1.4rem;
+    margin-bottom: 18px;
+  }
+  .btn-pay {
+    padding: 12px;
+    font-size: 1rem;
+  }
+  .amount-box {
+    font-size: 1rem;
+    padding: 10px;
+  }
+  .form-control {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 400px) {
+  body {
+    align-items: flex-start;
+    padding-top: 30px;
+  }
+  .payment-box {
+    padding: 18px 12px;
+  }
+}

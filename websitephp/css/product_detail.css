@@ -117,4 +117,13 @@ meter::-webkit-meter-suboptimum-value {
     color: white;
 }
 
+@media (max-width: 768px) {
+  .detail-title { font-size: 1.7rem; }
+  .d-sale { font-size: 2rem; }
+  .detail-price-box { flex-wrap: wrap; gap: 8px; }
+  .detail-img { max-height: 300px; }
+  .main-content { padding-top: 20px; }
+}
+
 @media (max-width: 576px) { .detail-img { max-height: 250px; } .detail-title { font-size: 1.6rem; } .d-sale { font-size: 1.8rem; } .detail-price-box { flex-wrap: wrap; gap: 10px; padding: 1rem; } .product-full-details { padding: 1rem !important; } .detail-card { border-radius: 12px; } }
+

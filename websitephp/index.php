@@ -9,18 +9,22 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="css/home-page-website.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="css/navbar-common.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="css/page-header.css?v=<?php echo time(); ?>">
 </head>
 <body>
 
 <?php include_once('includes/navbar.php'); ?>
+
+
 
 <section class="hero">
   <div class="hero-decoration decoration-1"></div>
   <div class="hero-decoration decoration-2"></div>
   <div class="hero-decoration decoration-3"></div>
   <div class="container hero-content">
-    <h1 class="display-3 fw-bold">WELCOME TO MARINE TRADERS</h1>
-    <p class="lead">Delivering excellence in every service we provide. Your trusted partner for quality solutions.</p>
+    <h1>WELCOME TO MARINE TRADERS</h1>
+    <p>Delivering excellence in every service we provide. Your trusted partner for quality solutions.</p>
     <a href="contact us.php" class="btn btn-primary btn-lg">
       <i class="fas fa-envelope me-2"></i>Get in Touch
     </a>

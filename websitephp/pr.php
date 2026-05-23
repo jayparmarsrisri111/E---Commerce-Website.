@@ -14,6 +14,7 @@ session_start();
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="css/pr.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="css/navbar-common.css?v=<?php echo time(); ?>">
 </head>
 <body>
   <!-- Navigation -->
@@ -122,12 +123,14 @@ $orderstock = ($orderstock_q && $orderstock_q->num_rows > 0) ? $orderstock_q->fe
                 } else {
                     $orderLink = 'login.php?redirect=' . urlencode($orderUrl);
                 }
-                echo'<div class="d-flex gap-2 mt-auto pt-3">';
-                echo'<a href="product_detail.php?id='.$row['id'].'" class="btn btn-outline-primary flex-grow-1"><i class="fas fa-eye me-1"></i> View</a>';
-                echo'<a href="'.$orderLink.'" class="btn btn-primary flex-grow-1"><i class="fas fa-shopping-cart me-1"></i> Order Now</a>';
+                echo'<div class="d-flex flex-column gap-2 mt-auto pt-3">';
+                echo'  <div class="d-flex gap-2">';
+                echo'    <a href="product_detail.php?id='.$row['id'].'" class="btn btn-outline-primary flex-grow-1" style="border-radius:10px;"><i class="fas fa-eye me-1"></i> View</a>';
+                echo'    <a href="cart_handler.php?action=add&product_id='.$row['id'].'" class="btn btn-warning flex-grow-1 text-white" style="background: linear-gradient(135deg, #f59e0b, #d97706); border: none; border-radius:10px;"><i class="fas fa-cart-plus me-1"></i> Cart</a>';
+                echo'  </div>';
+                echo'  <a href="'.$orderLink.'" class="btn btn-primary w-100" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8); border: none; border-radius:10px;"><i class="fas fa-shopping-bag me-1"></i> Order Now</a>';
                 echo'</div>';
-              } ?>
-            </div>
+              } ?>            </div>
           </div>
         </div>
 <?php } ?>

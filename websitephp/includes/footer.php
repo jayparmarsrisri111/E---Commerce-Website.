@@ -1,7 +1,7 @@
 <!-- Footer -->
 <footer>
   <div class="container">
-    <?php if (basename($_SERVER['PHP_SELF']) == 'HOME PAGE WEBSITE.php') { ?>
+    <?php if (basename($_SERVER['PHP_SELF']) == 'index.php') { ?>
     <div class="footer-content">
       <div class="footer-section">
         <h5>MARINE TRADERS</h5>
@@ -16,7 +16,7 @@
       <div class="footer-section">
         <h5>Quick Links</h5>
         <ul>
-          <li><a href="HOME PAGE WEBSITE.php">Home</a></li>
+          <li><a href="index.php">Home</a></li>
           <li><a href="About.php">About Us</a></li>
           <li><a href="pr.php">Products</a></li>
           <li><a href="Enquery form.php">Enquiry</a></li>

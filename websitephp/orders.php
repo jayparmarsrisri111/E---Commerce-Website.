@@ -18,11 +18,19 @@ $email = $_SESSION['email'];
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="css/orders.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="css/navbar-common.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="css/page-header.css?v=<?php echo time(); ?>">
 </head>
 <body>
 
 <?php include_once('includes/navbar.php'); ?>
 
+<div class="page-header">
+  <div class="container text-center">
+    <h1>My Orders</h1>
+    <p>Review your order history, status updates, and order details.</p>
+  </div>
+</div>
 <div class="main-content">
   <div class="container">
     <div class="orders-container">

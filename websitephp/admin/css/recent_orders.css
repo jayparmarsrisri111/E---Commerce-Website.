@@ -68,3 +68,21 @@ tbody tr:hover {
 tbody tr:last-child td {
     border-bottom: none;
 }
+
+/* Responsive Table */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+        margin: 10px 0;
+    }
+    th, td {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}

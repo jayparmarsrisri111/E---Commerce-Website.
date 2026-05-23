@@ -17,7 +17,7 @@ include("configpage.php");
 <!-- Navbar -->
 <nav class="navbar navbar-dark">
   <div class="container justify-content-center">
-    <a class="navbar-brand" href="HOME PAGE WEBSITE.php">
+    <a class="navbar-brand" href="index.php">
       <img src="image/LOGO.jpg" alt="Logo" width="35" height="35" class="me-2">
       MARINE TRADERS
     </a>

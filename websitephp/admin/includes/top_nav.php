@@ -41,7 +41,7 @@
   }
 ?>
 <!-- Top Navigation -->
-<?php if(basename($_SERVER['PHP_SELF']) == 'dashboard.php'): ?>
+<?php if(basename($_SERVER['PHP_SELF']) == 'index.php'): ?>
 <div class="top-nav">
     <div class="welcome-text">
         <h1>Welcome Back, <?php echo htmlspecialchars($u_firstname . ' ' . $u_lastname); ?>!</h1>

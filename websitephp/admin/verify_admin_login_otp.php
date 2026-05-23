@@ -17,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         unset($_SESSION['admin_pending_email']);
         
         // Redirect to dashboard
-        header("location: dashboard.php");
+        header("location: index.php");
         exit();
     } else {
         echo "<style>.error-message { color: red; font-weight: bold; }</style>";

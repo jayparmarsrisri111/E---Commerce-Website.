@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 session_start();
 
 // ── Login check ──
@@ -61,16 +61,33 @@ if (isset($_POST['submit'])) {
     ('$firstname', '$lastname', '$email', '$phone', '$address', '$city', '$state', '$pincode', '$country', '$product', '$quantity', '$payment', '$notes','$productn','$totalamount')";
 
     if (mysqli_query($mysqli, $query)) {
+    }
+    $payment   = $_POST['payment'];
+    $notes     = $_POST['notes'];
+    $productn =$_POST['productn'];
+    $totalamount =$_POST['totalamount'];
+    $order_id = rand(10000, 99999);
+
+    $query = "INSERT INTO orderss
+    (firstname, lastname, email, phone, address, city, state, pincode, country, productname, qunatity, payment, notes,productn,totalamount)
+    VALUES
+    ('$firstname', '$lastname', '$email', '$phone', '$address', '$city', '$state', '$pincode', '$country', '$product', '$quantity', '$payment', '$notes','$productn','$totalamount')";
+
+    if (mysqli_query($mysqli, $query)) {
         echo "<script>alert('Order placed successfully');</script>";
     } else {
         echo "Error: " . mysqli_error($mysqli);
     }
     
     if($payment == 'cod'){
+        // Ensure proper redirection for COD
         header("Location: confirmation.php?order_id=$order_id&saleprice=$totalamount&payment=$payment");
     }
     else{
-      header("Location: payment.php?amount=$totalamount&customername=$firstname $lastname&email=$email&phone=$phone");
+        // Properly encode parameters for redirect
+        $customername = trim($firstname . ' ' . $lastname);
+        $redirectUrl = 'payment.php?amount=' . urlencode($totalamount) . '&customername=' . urlencode($customername) . '&email=' . urlencode($email) . '&phone=' . urlencode($phone);
+        header("Location: $redirectUrl");
     }
 }
 ?>

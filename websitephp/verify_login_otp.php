@@ -12,17 +12,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // OTP is correct, log the user in
         $_SESSION['email'] = $_SESSION['pending_login_email'];
         
+        // Sync guest session cart to database
+        if(!isset($mysqli)) { include_once("configpage.php"); }
+        include_once("cart_functions.php");
+        syncCartAfterLogin($_SESSION['email'], $mysqli);
+        
         // Clear pending session variables
         unset($_SESSION['pending_login_otp']);
         unset($_SESSION['pending_login_email']);
-        
         // Redirect to saved page or home
         if (isset($_SESSION['login_redirect']) && !empty($_SESSION['login_redirect'])) {
             $redirect = $_SESSION['login_redirect'];
             unset($_SESSION['login_redirect']);
             header("location: " . $redirect);
         } else {
-            header("location: HOME PAGE WEBSITE.php");
+            header("location: index.php");
         }
         exit();
     } else {
@@ -46,7 +50,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <!-- Navbar -->
 <nav class="navbar navbar-dark">
   <div class="container justify-content-center">
-    <a class="navbar-brand" href="HOME PAGE WEBSITE.php">
+    <a class="navbar-brand" href="index.php">
       <img src="image/LOGO.jpg" alt="Logo" width="35" height="35" class="me-2">
       MARINE TRADERS
     </a>

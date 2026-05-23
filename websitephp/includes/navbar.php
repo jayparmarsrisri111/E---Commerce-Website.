@@ -1,10 +1,12 @@
 <?php
   $current_page = basename($_SERVER['PHP_SELF']);
+  if(!isset($mysqli)){ include_once("configpage.php"); }
+  include_once("cart_functions.php");
 ?>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
   <div class="container">
-    <a class="navbar-brand" href="HOME PAGE WEBSITE.php">
+    <a class="navbar-brand" href="index.php">
       <img src="image/LOGO.jpg" alt="Logo" width="35" height="35" class="me-2">
       MARINE TRADERS
     </a>
@@ -13,11 +15,12 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link <?php echo $current_page == 'HOME PAGE WEBSITE.php' ? 'active' : ''; ?>" href="HOME PAGE WEBSITE.php"><i class="fas fa-home"></i> Home</a></li>
+        <li class="nav-item"><a class="nav-link <?php echo $current_page == 'index.php' ? 'active' : ''; ?>" href="index.php"><i class="fas fa-home"></i> Home</a></li>
         <li class="nav-item"><a class="nav-link <?php echo $current_page == 'About.php' ? 'active' : ''; ?>" href="About.php"><i class="fas fa-info-circle"></i> About</a></li>
         <li class="nav-item"><a class="nav-link <?php echo ($current_page == 'pr.php' || $current_page == 'product_detail.php') ? 'active' : ''; ?>" href="pr.php"><i class="fas fa-box"></i> Products</a></li>
         <li class="nav-item"><a class="nav-link <?php echo $current_page == 'Enquery form.php' ? 'active' : ''; ?>" href="Enquery form.php"><i class="fas fa-envelope"></i> Enquiry</a></li>
         <li class="nav-item"><a class="nav-link <?php echo $current_page == 'contact us.php' ? 'active' : ''; ?>" href="contact us.php"><i class="fas fa-phone"></i> Contact</a></li>
+        <li class="nav-item"><a class="nav-link <?php echo $current_page == 'cart.php' ? 'active' : ''; ?>" href="cart.php"><i class="fas fa-shopping-basket"></i> Cart <span class="badge bg-danger rounded-pill" style="font-size: 11px; padding: 4px 6px; vertical-align: middle;"><?php echo getCartCount($mysqli); ?></span></a></li>
         <li class="nav-item"><a class="nav-link <?php echo $current_page == 'orderpage.php' ? 'active' : ''; ?>" href="orderpage.php"><i class="fas fa-shopping-cart"></i> Order Page</a></li>
         <li class="nav-item"><a class="nav-link <?php echo $current_page == 'orders.php' ? 'active' : ''; ?>" href="orders.php"><i class="fas fa-history"></i> Order History</a></li>
 <?php if(isset($_SESSION['email'])): ?>

@@ -12,7 +12,7 @@
 <body>
 
 <!-- Brand Logo at Top -->
-<a href="HOME PAGE WEBSITE.php" class="brand-link">
+<a href="index.php" class="brand-link">
   <img src="image/LOGO.jpg" alt="Logo">
   MARINE TRADERS
 </a>
@@ -34,7 +34,7 @@
   <i class="fas fa-check-circle"></i>
   Yes, Logout
 </a>
-<a href="HOME PAGE WEBSITE.php" class="btn-secondary-logout">
+<a href="index.php" class="btn-secondary-logout">
         <i class="fas fa-arrow-left"></i>
         Cancel
       </a>

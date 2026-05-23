@@ -49,7 +49,7 @@ session_destroy();
                 <i class="fas fa-sign-in-alt"></i>
                 Login Again
             </a>
-            <a href="../HOME PAGE WEBSITE.php" class="btn btn-secondary">
+            <a href="../index.php" class="btn btn-secondary">
                 <i class="fas fa-home"></i>
                 Go to Homepage
             </a>

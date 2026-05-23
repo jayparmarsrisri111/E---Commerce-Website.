@@ -68,7 +68,7 @@
                 </div>
             </div>
 
-            <div class="stat-card warning" onclick="window.location.href='dashboard.php';" style="cursor: pointer;">
+            <div class="stat-card warning" onclick="window.location.href='index.php';" style="cursor: pointer;">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start;">
                     <div>
                         <div class="stat-label" style="font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Total Revenue</div>

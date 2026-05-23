@@ -9,16 +9,21 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="css/about.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="css/navbar-common.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="css/page-header.css?v=<?php echo time(); ?>">
 </head>
 <body>
 
 <?php include_once('includes/navbar.php'); ?>
 
-<div class="container pb-5">
-  <div class="page-title">
-    <h1>ABOUT US</h1>
+<div class="page-header">
+  <div class="container text-center">
+    <h1>About Us</h1>
+    <p>Learn more about Marine Traders and our commitment to marine excellence.</p>
   </div>
+</div>
 
+<div class="container pb-5">
   <div class="row mb-5">
     <div class="col-lg-6 mb-4">
       <img src="image/LOGO.jpg" height="700px" alt="Company Image" class="company-image">
