@@ -202,6 +202,16 @@ body::before {
   color: #92400e;
 }
 
+.status-processing {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.status-shipped {
+  background: #cffafe;
+  color: #0f766e;
+}
+
 .status-success {
   background: #dcfce7;
   color: #166534;
@@ -252,7 +262,43 @@ footer small {
   .orders-card { padding: 1.5rem 1rem; border-radius: 16px; }
   .main-content { padding: 30px 0; }
   .page-title { font-size: 1.4rem; }
-  .table thead th { font-size: 0.75rem; padding: 0.75rem 0.5rem; }
-  .table td { font-size: 0.85rem; padding: 1rem 0.5rem; }
-  .status-badge { font-size: 0.7rem; padding: 4px 10px; }
+  
+  /* Table to Card layout transformation */
+  .table-responsive { overflow-x: hidden; border: none; }
+  .table { display: block; border: none; }
+  .table thead { display: none; }
+  .table tbody { display: block; width: 100%; }
+  .table tbody tr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-radius: 12px;
+    padding: 10px 15px;
+  }
+  .table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    padding: 12px 0;
+    text-align: right !important;
+    border-bottom: 1px dashed #e2e8f0;
+  }
+  .table td:last-child { border-bottom: none; }
+  .table td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: #64748b;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    flex-basis: 40%;
+  }
+  .table td > * {
+    flex-basis: 60%;
+    text-align: right;
+  }
+  .status-badge { font-size: 0.75rem; padding: 6px 12px; display: inline-block; }
 }

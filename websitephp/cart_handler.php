@@ -45,11 +45,21 @@ if ($action == 'add' && $product_id > 0) {
             if (mysqli_num_rows($check) > 0) {
                 $cart_item = mysqli_fetch_assoc($check);
                 $new_qty = $cart_item['quantity'] + $quantity;
-                if ($new_qty > $available_stock) $new_qty = $available_stock;
-                
+                if ($new_qty > $available_stock) {
+                    $new_qty = $available_stock;
+                    $_SESSION['cart_error'] = "You've reached the maximum available stock for " . htmlspecialchars($product['title']) . ".";
+                    $_SESSION['cart_success'] = null; // Clear success if error
+                } else {
+                    $_SESSION['cart_success'] = "Added " . htmlspecialchars($product['title']) . " to cart successfully!";
+                }
                 mysqli_query($mysqli, "UPDATE cart SET quantity = $new_qty WHERE email='$email' AND product_id=$product_id");
             } else {
-                if ($quantity > $available_stock) $quantity = $available_stock;
+                if ($quantity > $available_stock) {
+                    $quantity = $available_stock;
+                    $_SESSION['cart_error'] = "Only " . $available_stock . " available in stock.";
+                } else {
+                    $_SESSION['cart_success'] = "Added " . htmlspecialchars($product['title']) . " to cart successfully!";
+                }
                 mysqli_query($mysqli, "INSERT INTO cart (email, product_id, quantity) VALUES ('$email', $product_id, $quantity)");
             }
         } else {
@@ -58,15 +68,24 @@ if ($action == 'add' && $product_id > 0) {
                 $_SESSION['cart'] = array();
             }
             if (isset($_SESSION['cart'][$product_id])) {
-                $_SESSION['cart'][$product_id] += $quantity;
+                $new_qty = $_SESSION['cart'][$product_id] + $quantity;
+                if ($new_qty > $available_stock) {
+                    $_SESSION['cart'][$product_id] = $available_stock;
+                    $_SESSION['cart_error'] = "You've reached the maximum available stock for " . htmlspecialchars($product['title']) . ".";
+                } else {
+                    $_SESSION['cart'][$product_id] = $new_qty;
+                    $_SESSION['cart_success'] = "Added " . htmlspecialchars($product['title']) . " to cart successfully!";
+                }
             } else {
-                $_SESSION['cart'][$product_id] = $quantity;
-            }
-            if ($_SESSION['cart'][$product_id] > $available_stock) {
-                $_SESSION['cart'][$product_id] = $available_stock;
+                if ($quantity > $available_stock) {
+                    $_SESSION['cart'][$product_id] = $available_stock;
+                    $_SESSION['cart_error'] = "Only " . $available_stock . " available in stock.";
+                } else {
+                    $_SESSION['cart'][$product_id] = $quantity;
+                    $_SESSION['cart_success'] = "Added " . htmlspecialchars($product['title']) . " to cart successfully!";
+                }
             }
         }
-        $_SESSION['cart_success'] = "Added " . htmlspecialchars($product['title']) . " to cart successfully!";
     }
     header("Location: cart.php");
     exit();

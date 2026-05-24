@@ -17,10 +17,21 @@ define('GMAIL_PASS',  'bksryvzrymzlcxrm');
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 $email=mysqli_real_escape_string($mysqli,$_POST['email']);
-$password=mysqli_real_escape_string($mysqli,$_POST['password']);
-$query ="SELECT * FROM adminlo WHERE email='$email' AND password='$password'";
+$password_input=$_POST['password'];
+$query ="SELECT * FROM adminlo WHERE email='$email'";
 $result=mysqli_query($mysqli,$query);
+$is_password_correct = false;
 if(mysqli_num_rows($result)==1){
+    $row = mysqli_fetch_assoc($result);
+    if(password_verify($password_input, $row['password'])){
+        $is_password_correct = true;
+    } else if($password_input === $row['password']){
+        $is_password_correct = true;
+        $new_hash = password_hash($password_input, PASSWORD_DEFAULT);
+        mysqli_query($mysqli, "UPDATE adminlo SET password='$new_hash' WHERE email='$email'");
+    }
+}
+if($is_password_correct){
     // Generate OTP
     $otp = rand(100000, 999999);
     $_SESSION['admin_pending_otp'] = $otp;

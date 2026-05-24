@@ -26,7 +26,7 @@ if (!$result) {
     <!-- Main Content -->
     <div class="main-content">
         <?php include_once('includes/top_nav.php'); ?>
-        <div style="overflow-x: auto;">
+        <div class="table-responsive">
         <table style="width: 100%; min-width: 1200px;">
             <thead>
                 <tr>
@@ -53,21 +53,21 @@ if (!$result) {
                     if(!empty($res['pincode'])) $address .= " - " . htmlspecialchars($res['pincode']);
                     
                     echo "<tr>";
-                    echo "<td>".$res['id']."</td>";
-                    echo "<td>".$fullName."</td>";
-                    echo "<td>".htmlspecialchars($res['phone'])."</td>";
-                    echo "<td>".htmlspecialchars($res['productname'])."</td>";
-                    echo "<td>".$res['qunatity']."</td>";
-                    echo "<td><strong style='color:#28a745;'>₹".htmlspecialchars($res['totalamount'])."</strong></td>";
-                    echo "<td>".$address."</td>";
-                    echo "<td><span style='text-transform:uppercase;'>".htmlspecialchars($res['payment'])."</span></td>";
+                    echo "<td data-label='ID'>".$res['id']."</td>";
+                    echo "<td data-label='Full Name'>".$fullName."</td>";
+                    echo "<td data-label='Phone'>".htmlspecialchars($res['phone'])."</td>";
+                    echo "<td data-label='Product Name'>".htmlspecialchars($res['productname'])."</td>";
+                    echo "<td data-label='Qty'>".$res['qunatity']."</td>";
+                    echo "<td data-label='Total Amt'><strong style='color:#28a745;'>₹".htmlspecialchars($res['totalamount'])."</strong></td>";
+                    echo "<td data-label='Full Address'>".$address."</td>";
+                    echo "<td data-label='Payment'><span style='text-transform:uppercase;'>".htmlspecialchars($res['payment'])."</span></td>";
                     
                     $statusColor = ($res['orderstatus'] == 'delivered') ? 'green' : (($res['orderstatus'] == 'pending' || empty($res['orderstatus'])) ? 'orange' : 'black');
                     $statusText = empty($res['orderstatus']) ? 'Pending' : ucfirst($res['orderstatus']);
-                    echo "<td style='color:".$statusColor."; font-weight:bold;'>".$statusText."</td>";
+                    echo "<td data-label='Status' style='color:".$statusColor."; font-weight:bold;'>".$statusText."</td>";
                     
-                    echo "<td><a href='orderedit.php?id=".$res['id']."' class='btn-action btn-update'><i class='bi bi-pencil-square'></i> Edit</a></td>";
-                    echo "<td><a href='orderdelete.php?id=".$res['id']."' class='btn-action btn-delete' onclick=\"return confirm('Are you sure you want to delete?')\"><i class='bi bi-trash'></i> Delete</a></td>";
+                    echo "<td data-label='Edit'><a href='orderedit.php?id=".$res['id']."' class='btn-action btn-update'><i class='bi bi-pencil-square'></i> Edit</a></td>";
+                    echo "<td data-label='Delete'><a href='orderdelete.php?id=".$res['id']."' class='btn-action btn-delete' onclick=\"return confirm('Are you sure you want to delete?')\"><i class='bi bi-trash'></i> Delete</a></td>";
                     echo "</tr>";
                 }
                 ?>

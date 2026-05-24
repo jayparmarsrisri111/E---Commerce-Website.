@@ -10,12 +10,13 @@ if (!isset($_SESSION['admin_otp_verified']) || $_SESSION['admin_otp_verified'] !
 $email = $_SESSION['admin_reset_email'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $new_password = mysqli_real_escape_string($mysqli, $_POST['new_password']);
-    $confirm_password = mysqli_real_escape_string($mysqli, $_POST['confirm_password']);
+    $new_password = $_POST['new_password'];
+    $confirm_password = $_POST['confirm_password'];
     
     if ($new_password === $confirm_password) {
         // Update password in database
-        $query = "UPDATE adminlo SET password='$new_password' WHERE email='$email'";
+        $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
+        $query = "UPDATE adminlo SET password='$hashed_password' WHERE email='$email'";
         if (mysqli_query($mysqli, $query)) {
             // Clear session variables
             unset($_SESSION['admin_reset_email']);

@@ -66,9 +66,7 @@ $u_lastname  = htmlspecialchars($user_data['lastname']  ?? '');
 $u_email     = htmlspecialchars($user_data['email']     ?? $user_email);
 $u_phone     = htmlspecialchars($user_data['phone']     ?? '');
 ?>
-<div class="page-header">
-  <h1>Order</h1>
-</div>
+
 <!-- Main Content -->
 <div class="main-content">
   <div class="container">

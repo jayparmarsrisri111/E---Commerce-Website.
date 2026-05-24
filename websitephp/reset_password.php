@@ -8,13 +8,14 @@ if(!isset($_SESSION['reset_email'])){
 }
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $npass = mysqli_real_escape_string($mysqli, $_POST['new_password']);
-    $cpass = mysqli_real_escape_string($mysqli, $_POST['confirm_password']);
+    $npass = $_POST['new_password'];
+    $cpass = $_POST['confirm_password'];
 
     if($npass === $cpass){
         $email = $_SESSION['reset_email'];
         // Update password in db
-        $updateQuery = "UPDATE login SET password='$npass', confirmpassword='$npass' WHERE email='$email'";
+        $hashed_password = password_hash($npass, PASSWORD_DEFAULT);
+        $updateQuery = "UPDATE login SET password='$hashed_password', confirmpassword='$hashed_password' WHERE email='$email'";
         if(mysqli_query($mysqli, $updateQuery)){
             // Clear session variables
             unset($_SESSION['reset_email']);

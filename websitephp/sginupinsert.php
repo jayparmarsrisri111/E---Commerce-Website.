@@ -7,8 +7,8 @@ if(isset($_POST['submit'])){
     $lastname = mysqli_real_escape_string($mysqli, trim($_POST['lastname']));
     $email = mysqli_real_escape_string($mysqli, trim($_POST['email']));
     $phone = mysqli_real_escape_string($mysqli, trim($_POST['phone']));
-    $confirmpassword = mysqli_real_escape_string($mysqli, $_POST['confirmpassword']);
-    $password = mysqli_real_escape_string($mysqli, $_POST['password']);
+    $confirmpassword = password_hash($_POST['confirmpassword'], PASSWORD_DEFAULT);
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     // Check if user already exists to prevent duplicate emails and failure in login
     $check_query = "SELECT * FROM login WHERE email='$email'";

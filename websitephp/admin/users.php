@@ -140,13 +140,55 @@ if (!$result) {
             box-shadow: 0 2px 8px rgba(56, 239, 125, 0.3);
         }
 
-        /* overriding sub table properties */
         .sub-table th {
             background: #f1f4f8 !important;
             color: #444 !important;
         }
         .sub-table td {
             background: #ffffff !important;
+        }
+
+        /* Mobile Card Layout */
+        @media (max-width: 576px) {
+            .table-responsive { overflow-x: hidden; border: none; background: transparent; box-shadow: none; padding: 0;}
+            table { display: block; border: none; background: transparent; box-shadow: none; }
+            table thead { display: none; }
+            table tbody { display: block; width: 100%; }
+            table tbody tr {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 20px;
+                background: #fff;
+                border: 1px solid rgba(226, 232, 240, 0.8);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+                border-radius: 12px;
+                padding: 10px 15px;
+            }
+            table td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border: none !important;
+                padding: 10px 0 !important;
+                text-align: right !important;
+                border-bottom: 1px dashed #e2e8f0 !important;
+                font-size: 0.85rem;
+            }
+            table td:last-child { border-bottom: none !important; }
+            table td::before {
+                content: attr(data-label);
+                font-weight: 700;
+                color: #64748b;
+                text-align: left;
+                text-transform: uppercase;
+                font-size: 0.8rem;
+                flex-basis: 40%;
+            }
+            table td > * {
+                flex-basis: 60%;
+                text-align: right;
+            }
+            .btn-view { padding: 6px 12px; font-size: 0.75rem; display: inline-flex; }
         }
     </style>
 </head>
@@ -200,14 +242,14 @@ if (!$result) {
                     $d_phone_display = !empty(trim($d_phone)) ? htmlspecialchars($d_phone) : "<em style='color:#999'>N/A</em>";
 
                     echo "<tr>";
-                    echo "<td>".$res['id']."</td>";
-                    echo "<td>".$d_firstname_display."</td>";
-                    echo "<td>".$d_lastname_display."</td>";
-                    echo "<td>".htmlspecialchars($res['email'])."</td>";
-                    echo "<td>".$d_phone_display."</td>";
-                    echo "<td>".htmlspecialchars($res['password'])."</td>";
-                    echo "<td><span class='details-badge'>".$orderCount."</span></td>";
-                    echo "<td>";
+                    echo "<td data-label='ID'>".$res['id']."</td>";
+                    echo "<td data-label='First Name'>".$d_firstname_display."</td>";
+                    echo "<td data-label='Last Name'>".$d_lastname_display."</td>";
+                    echo "<td data-label='Email Address'>".htmlspecialchars($res['email'])."</td>";
+                    echo "<td data-label='Phone'>".$d_phone_display."</td>";
+                    echo "<td data-label='Password'>".htmlspecialchars($res['password'])."</td>";
+                    echo "<td data-label='Total Orders'><span class='details-badge'>".$orderCount."</span></td>";
+                    echo "<td data-label='Action'>";
                     echo "<a href='user_details.php?email=".urlencode($res['email'])."' class='btn-view'><i class='fas fa-eye'></i> View Orders</a>";
                     echo "</td>";
                     echo "</tr>";

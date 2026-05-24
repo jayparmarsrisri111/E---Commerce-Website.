@@ -50,11 +50,11 @@
                                 if(mysqli_num_rows($result) > 0) {
                                     while($res = mysqli_fetch_array($result)) {
                                         echo "<tr>";
-                                        echo "<td><strong>#".$res['id']."</strong></td>";
-                                        echo "<td>".$res['title']."</td>";
-                                        echo "<td><img src='".$res['img']."' class='product-img' alt='".$res['title']."'></td>";
-                                        echo "<td><span class='price-mrp'>₹".$res['mrp']."</span></td>";
-                                        echo "<td><span class='price-sale'>₹".$res['saleprice']."</span></td>";
+                                        echo "<td data-label='ID'><strong>#".$res['id']."</strong></td>";
+                                        echo "<td data-label='Title'>".$res['title']."</td>";
+                                        echo "<td data-label='Image'><img src='".$res['img']."' class='product-img' alt='".$res['title']."'></td>";
+                                        echo "<td data-label='MRP'><span class='price-mrp'>₹".$res['mrp']."</span></td>";
+                                        echo "<td data-label='Sales Price'><span class='price-sale'>₹".$res['saleprice']."</span></td>";
                                         
                                         // Fetch ordered stock for this product
                                         $ptitle = mysqli_real_escape_string($mysqli, $res['title']);
@@ -67,11 +67,11 @@
 
                                         // Stock badge with color coding (Green if > 0, Red if 0)
                                         $stockClass = $available_stock > 0 ? 'bg-success' : 'bg-danger';
-                                        echo "<td><span class='badge badge-stock ".$stockClass."'>".$available_stock." Available</span></td>";
+                                        echo "<td data-label='Stock'><span class='badge badge-stock ".$stockClass."'>".$available_stock." Available</span></td>";
                                         
-                                        echo "<td><span class='badge-category'>".$res['category']."</span></td>";
-                                        echo "<td><a href='formdelete.php?id=".$res['id']."' class='btn-action btn-delete' onclick=\"return confirm('Are you sure you want to delete this product?')\"><i class='bi bi-trash'></i> Delete</a></td>";
-                                        echo "<td><a href='update.php?id=".$res['id']."' class='btn-action btn-update'><i class='bi bi-pencil-square'></i> Update</a></td>";
+                                        echo "<td data-label='Category'><span class='badge-category'>".$res['category']."</span></td>";
+                                        echo "<td data-label='Action'><a href='formdelete.php?id=".$res['id']."' class='btn-action btn-delete' onclick=\"return confirm('Are you sure you want to delete this product?')\"><i class='bi bi-trash'></i> Delete</a></td>";
+                                        echo "<td data-label='Action'><a href='update.php?id=".$res['id']."' class='btn-action btn-update'><i class='bi bi-pencil-square'></i> Update</a></td>";
                                         echo "</tr>";
                                     }
                                 } else {
